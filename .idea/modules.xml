@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/2017Interview/2017Interview.iml" filepath="$PROJECT_DIR$/2017Interview/2017Interview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2018Interview/2018Interview.iml" filepath="$PROJECT_DIR$/2018Interview/2018Interview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2019Interview/2019Interview.iml" filepath="$PROJECT_DIR$/2019Interview/2019Interview.iml" />
       <module fileurl="file://$PROJECT_DIR$/DJInterview/DJInterview.iml" filepath="$PROJECT_DIR$/DJInterview/DJInterview.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaAlgthrom.iml" filepath="$PROJECT_DIR$/JavaAlgthrom.iml" />
     </modules>
