@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/DJInterview/DJInterview.iml" filepath="$PROJECT_DIR$/DJInterview/DJInterview.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaAlgthrom.iml" filepath="$PROJECT_DIR$/JavaAlgthrom.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaBase/JavaBase.iml" filepath="$PROJECT_DIR$/JavaBase/JavaBase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProgrammerCodeInterviewGuide/ProgrammerCodeInterviewGuide.iml" filepath="$PROJECT_DIR$/ProgrammerCodeInterviewGuide/ProgrammerCodeInterviewGuide.iml" />
     </modules>
   </component>
 </project>
