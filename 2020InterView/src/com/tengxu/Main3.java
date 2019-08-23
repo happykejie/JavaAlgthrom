@@ -7,7 +7,6 @@ public class Main3 {
     public  static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
-
         int n= 0;
         int m =0;
         List<Integer> arrh = new ArrayList<Integer>();
@@ -25,30 +24,18 @@ public class Main3 {
             int wi = sc.nextInt();
             WI.add(wi);
         }
-
         for(int i=0; i<n;i++)
         {
             int vi = sc.nextInt();
             VI.add(vi);
         }
-
         int min =0;
         int start =0;
-
         int[] threemin = new int[3];
-
-
         for(int i=0; i<arrh.size();i++)
         {
-
         }
-
-
-
-
         //排序
-
-
     }
 
     public static int arrSum(int arr[]) {
