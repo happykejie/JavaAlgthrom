@@ -35,10 +35,14 @@ public class Code03_HeapSort {
 			int largest = left + 1 < size && arr[left + 1] > arr[left] ? left + 1 : left;
 			//父和孩子之间，谁的值大，把下标给largest
 			largest = arr[largest] > arr[index] ? largest : index;
+
+			//最大节点就是父亲节点，不需要交互
 			if (largest == index) {
 				break;
 			}
+			// 最大孩子和父节点交互
 			swap(arr, largest, index);
+			//继续往下查看
 			index = largest;
 			left = index * 2 + 1;
 		}
@@ -108,25 +112,29 @@ public class Code03_HeapSort {
 
 	// for test
 	public static void main(String[] args) {
-		int testTime = 500000;
-		int maxSize = 100;
-		int maxValue = 100;
-		boolean succeed = true;
-		for (int i = 0; i < testTime; i++) {
-			int[] arr1 = generateRandomArray(maxSize, maxValue);
-			int[] arr2 = copyArray(arr1);
-			heapSort(arr1);
-			comparator(arr2);
-			if (!isEqual(arr1, arr2)) {
-				succeed = false;
-				break;
-			}
-		}
-		System.out.println(succeed ? "Nice!" : "Fucking fucked!");
 
-		int[] arr = generateRandomArray(maxSize, maxValue);
-		printArray(arr);
+		int[] arr = {1,2,3,5,2,3};
 		heapSort(arr);
+
+//		int testTime = 500000;
+//		int maxSize = 100;
+//		int maxValue = 100;
+//		boolean succeed = true;
+//		for (int i = 0; i < testTime; i++) {
+//			int[] arr1 = generateRandomArray(maxSize, maxValue);
+//			int[] arr2 = copyArray(arr1);
+//			heapSort(arr1);
+//			comparator(arr2);
+//			if (!isEqual(arr1, arr2)) {
+//				succeed = false;
+//				break;
+//			}
+//		}
+//		System.out.println(succeed ? "Nice!" : "Fucking fucked!");
+//
+//		int[] arr = generateRandomArray(maxSize, maxValue);
+//		printArray(arr);
+//		heapSort(arr);
 		printArray(arr);
 	}
 

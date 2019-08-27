@@ -12,12 +12,39 @@ public class Code06_QuickSort {
 	}
 
 	// arr[1..r]排好序
-	public static void quickSort(int[] arr, int L, int r) {
-		if (L < r) {
-			swap(arr, L + (int) (Math.random() * (r - L + 1)), r);
-			int[] p = partition(arr, L, r);
-			quickSort(arr, L, p[0] - 1); // < 区
-			quickSort(arr, p[1] + 1, r); // > 区
+	public static void quickSort(int[] arr, int L, int R) {
+		int i,j,t,temp =0;
+		if (L < R) {
+			temp = arr[L]; // temp中存的就是基准数
+			i=L;
+			j=R;
+			while (i!=j){
+				//顺序很重要，要先从右边往左找
+				while (arr[j]>temp && i < j)
+				{
+					j--;
+				}
+				//再从左边开始找
+				while (arr[i]<=temp & i < j){
+					i++;
+				}
+
+				//交换两个数在数组中的位置
+				if(i < j) //当哨兵i和哨兵j 没有相遇时
+				{
+					t= arr[i];
+					arr[i]= arr[j];
+					arr[j]=t;
+				}
+			}
+
+			//L和R 相遇，最终把基准数归为，划分左边小于都是小于等于基准数的，右边都是大于等于基准数的a
+			arr[L] =arr[i];
+			arr[i] =temp;
+
+			quickSort(arr,L,i-1);
+			quickSort(arr,i+1,R);
+
 		}
 	}
 	 //这是一个处理arr[1..r]的函数

@@ -21,24 +21,26 @@ public class Code01_MergeSort {
 		merge(arr, l, mid, r);
 	}
 
-	public static void merge(int[] arr, int l, int m, int r) {
-		int[] help = new int[r - l + 1];
+	public static void merge(int[] arr, int L, int m, int R) {
+		//辅助数组外排序
+		int[] help = new int[R - L + 1];
 		int i = 0;
-		int p1 = l;
-		int p2 = m + 1;
-		while (p1 <= m && p2 <= r) {
+		int p1 = L; // 指向左侧部分最左边
+		int p2 = m + 1; // 执行右侧部分最左边
+		while (p1 <= m && p2 <= R) { // 左侧没有越界，右侧也没有越界， 合并时谁小拷贝谁，相等时默认拷贝左，为了稳定性
+			// 谁考虑了谁往下走， 肯定有一个先越界，则跳出，执行下面判断
 			help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
 		}
-		// p1 越界
+		// p1 越界—— p1,p2 越界只会发生一个
 		while (p1 <= m) {
 			help[i++] = arr[p1++];
 		}
 		// p2 越界
-		while (p2 <= r) {
+		while (p2 <= R) {
 			help[i++] = arr[p2++];
 		}
 		for (i = 0; i < help.length; i++) {
-			arr[l + i] = help[i];
+			arr[L + i] = help[i];
 		}
 	}
 
@@ -100,27 +102,33 @@ public class Code01_MergeSort {
 
 	// for test
 	public static void main(String[] args) {
-		int testTime = 500000;
-		int maxSize = 100;
-		int maxValue = 100;
-		boolean succeed = true;
-		for (int i = 0; i < testTime; i++) {
-			int[] arr1 = generateRandomArray(maxSize, maxValue);
-			int[] arr2 = copyArray(arr1);
-			mergeSort(arr1);
-			comparator(arr2);
-			if (!isEqual(arr1, arr2)) {
-				succeed = false;
-				printArray(arr1);
-				printArray(arr2);
-				break;
-			}
-		}
-		System.out.println(succeed ? "Nice!" : "Fucking fucked!");
 
-		int[] arr = generateRandomArray(maxSize, maxValue);
-		printArray(arr);
+		int[] arr = {1,2,3,5,2,3};
 		mergeSort(arr);
+
+//		return;
+//
+//		int testTime = 500000;
+//		int maxSize = 100;
+//		int maxValue = 100;
+//		boolean succeed = true;
+//		for (int i = 0; i < testTime; i++) {
+//			int[] arr1 = generateRandomArray(maxSize, maxValue);
+//			int[] arr2 = copyArray(arr1);
+//			mergeSort(arr1);
+//			comparator(arr2);
+//			if (!isEqual(arr1, arr2)) {
+//				succeed = false;
+//				printArray(arr1);
+//				printArray(arr2);
+//				break;
+//			}
+//		}
+//		System.out.println(succeed ? "Nice!" : "Fucking fucked!");
+//
+//		int[] arr = generateRandomArray(maxSize, maxValue);
+//		printArray(arr);
+//		mergeSort(arr);
 		printArray(arr);
 
 	}
