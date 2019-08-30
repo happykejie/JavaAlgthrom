@@ -55,7 +55,6 @@ public class Main3 {
                     curindex = i;
                 }
             }
-
             //购买了最小值对于价格一份，金额减去花费
             restm -= wparr[curindex];
 
