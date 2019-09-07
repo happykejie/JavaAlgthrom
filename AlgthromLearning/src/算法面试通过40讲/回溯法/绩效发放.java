@@ -1,8 +1,8 @@
-package com.招商银行;
+package 算法面试通过40讲.回溯法;
 
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  * 销售业绩考核 优秀的A， 合格为B， 较差为C，公司年底都会生成n个月（n<=m）的业绩。 如果业绩中超过一个C，或者超过连续的B，则不会对该员工发放业绩奖金。
@@ -29,7 +29,6 @@ public class 绩效发放 {
                 result.add(new ArrayList<>(temp));
             }
             return;
-
         }
         for(int i = 0 ; i < grade.length() ; i++){
             temp.add(grade.charAt(i));

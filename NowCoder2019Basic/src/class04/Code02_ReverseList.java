@@ -11,6 +11,7 @@ public class Code02_ReverseList {
 		}
 	}
 
+	// 反转链表
 	public static Node reverseList(Node head) {
 		Node pre = null;
 		Node next = null;
