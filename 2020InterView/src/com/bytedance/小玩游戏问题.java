@@ -24,25 +24,7 @@ public class 小玩游戏问题 {
 
         int lenghth = strarr.length;
         ArrayList<Integer>  fkint = new ArrayList<>();
-        HashMap<Integer,Integer> hm = new HashMap<Integer, Integer>();
 
-        for(int i =0; i<strarr.length;i++){
-            char c = strarr[i];
-            if(c =='<'){
-                //表示向左边
-               hm.put(i,-1);
-               continue;
-            }
-            else if(c =='>'){
-                //表示向右边
-                hm.put(i,-2);
-                continue;
-            }
-            else {
-                int num = Integer.parseInt(String.valueOf(c));
-                hm.put(i,num);
-            }
-        }
 
 //        int[][] zcarr = new int[q][2];
 //
@@ -55,7 +37,7 @@ public class 小玩游戏问题 {
 
 
         for(int i =0; i< zcarr.length;i++){
-            int result = countMax(zcarr[i][0],zcarr[i][1],hm);
+            int result = countMax(zcarr[i][0],zcarr[i][1],strarr);
             System.out.println(result);
         }
 
@@ -64,28 +46,57 @@ public class 小玩游戏问题 {
     /**
      *
      */
-    public  static  int  countMax(int L, int R, HashMap<Integer,Integer> hm){
+    public  static  int  countMax(int L, int R, char[] strarr){
+
+        HashMap<Integer,Integer> hm = new HashMap<Integer, Integer>();
+
+        for(int i =0; i<strarr.length;i++){
+            char c = strarr[i];
+            if(c =='<'){
+                //表示向左边
+                hm.put(i+1,-1);
+                continue;
+            }
+            else if(c =='>'){
+                //表示向右边
+                hm.put(i+1,-2);
+                continue;
+            }
+            else {
+                int num = Integer.parseInt(String.valueOf(c));
+                hm.put(i+1,num);
+            }
+        }
+
         int Lbj = L-1;
-        int Rbj = R-1;
+        int Rbj = R+1;
         int startindex = L;
 
         int total =0;
         int curfx =-2;
         int preblockvalue = 0;
-        while (startindex != Lbj || startindex != Rbj){
+        while (startindex != Lbj && startindex != Rbj){
             int curblockvalue = hm.get(startindex);
 
-            if(curblockvalue ==preblockvalue ||curblockvalue ==preblockvalue){ //表示下一个也是方位符号
+            if(curblockvalue ==-3){
+                if(curfx == -2){
+                    startindex++;
+                }
+                else {
+                    startindex --;
+                }
+                continue;
+            }
+
+          if(curblockvalue <0 && preblockvalue <0){ //表示下一个也是方位符号
                 hm.put(startindex,-3); //销毁这个块
                 if(curfx==-2){
                     startindex ++;
                     continue;
-
                 }
                 else {
                     startindex --;
                     continue;
-
                 }
             }
 
@@ -93,18 +104,16 @@ public class 小玩游戏问题 {
                 total +=0;
                 startindex--;
                 curfx=-1;
+                preblockvalue =curblockvalue;
                 continue;
-
             }
             if(curblockvalue==-2){ //向右边
                 total +=0;
                 startindex++;
                 curfx=-2;
+                preblockvalue =curblockvalue;
                 continue;
-
             }
-
-
 
             if(curblockvalue == 0){
                 total +=0;
@@ -129,7 +138,7 @@ public class 小玩游戏问题 {
                 else {
                     startindex --;
                 }
-
+                preblockvalue =0;
             }
 
         }
